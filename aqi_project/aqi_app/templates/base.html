@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>AQI</title>
+    <style>
+        body {
+            position: relative;
+            background-color: #f0f8ff; /* Fallback color */
+          }
+    
+          body::after {
+            content: "";
+            background: url('https://img.freepik.com/premium-photo/abstract-green-landscape-wallpaper-background-illustration-design-with-hills-mountainsorganic-green-environment-ecology-headernature-landscape-background-generate-ai_865659-521.jpg?w=1060') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.5; /* Adjust the opacity level here */
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1; /* Place the image behind other content */
+          }
+    	.good { background-color:#52b946;}
+    	.moderate { background-color:#f3ec18;}
+    	.usg { background-color:#f47f1d;}
+    	.unhealthy { background-color:#ec1d23;}
+    	.veryunhealthy { background-color:#7e2b7d;}
+    	.hazardous { background-color:#480e27;}	
+
+        
+        .img_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vh; 
+        }
+        
+        .img_container img {
+            height: 200px; 
+            width: 300px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19); 
+        }
+        .conatiner{
+            height: 400px;
+            width: 400px;
+        }
+        
+        
+    </style>
+	</head>
+	<body>
+	
+	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-info">
+
+        <a class="navbar-brand" href="{% url 'home' %}">AQI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <form action="{% url 'home' %}" class="form-inline my-2 my-lg-0" method="POST">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" placeholder="Enter City Name" aria-label="Search" name="city">
+                <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+	<br/>
+    <div class="img_container">
+        <img src="https://raceias.com/storage/current_affairs/Pbepx5dwNVmBzbQgaFfnLKpBbLtq9YZhAJX7Mlid.jpg" alt="Description of Image">
+    </div>
+  	<div class="container">
+    
+		{% block content %}
+
+		{% endblock %}
+
+	</div>
+</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

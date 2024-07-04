@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if api %}
+        {% if api == "Error" %}
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                Error. Try again.
+            </div>
+        </div>        
+        {% else %}
+        <div class="d-flex justify-content-center">
+            <div class="jumbotron {{col}} " style="height: 45vh; width: 60vh;">
+                <b><h1 class="display-4">{{ quality }}</h1></b>
+                <b><p class="lead">{{api.data.city.name}}<br>Air quality {{api.data.aqi}}</p></b>
+                <p>{{aqi_range}}<br>{{desc}}</p>
+                
+            </div>  
+            
+        </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}
